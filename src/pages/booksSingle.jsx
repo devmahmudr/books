@@ -11,7 +11,7 @@ const BooksSingle = () => {
   });
   useEffect(() => {
     axios
-      .get(`http://13.48.147.57/book/genreId/${id}`)
+      .get(`http://13.48.147.57/book/genreId/10`)
       .then((res) => {
         setInfo({
           isFatched: true,

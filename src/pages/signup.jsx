@@ -6,16 +6,19 @@ const Signup = () => {
   const nav = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { email, password } = e.target;
+    const { email, password, firstName, lastName, phone } = e.target;
 
     const data = {
-      email: email.value,
-      password: password.value,
+      email: email?.value || "",
+      password: password?.value || "",
+      first_name: firstName?.value || "",
+      last_name: lastName?.value || "",
+      phone: phone?.value || "",  
     };
 
     const api = await post("user/register", data);
 
-    if (api.data.status === 200) {
+    if (api?.data?.status === 200) {
       window.localStorage.setItem("token", api?.data?.token);
       return nav("/");
     }
